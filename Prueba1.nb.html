@@ -244,8 +244,118 @@ pre code {
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF0cml4KDE6OSxieXJvdz1UUlVFLG5yb3c9MylcbmBgYCJ9 -->
+<pre class="r"><code>matrix(1:9,byrow=TRUE,nrow=3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFsXzEgPC0gYyg0NjAuOTk4LDMxNC40KVxuZW1waXJlX3N0cmlrZSA8LSBjKDI5ODAuNDc1LDI0Ny45KVxucmV0dW5famVkaSA8LSBjKDMwOS4zMDYsMTY1LjgpXG5ib3hfb2ZmaWNlIDwtIGModmFsXzEsZW1waXJlX3N0cmlrZSxyZXR1bl9qZWRpKVxuXG5zdGFyc193YXJzX21hdHJpeCA8LSBtYXRyaXgoYm94X29mZmljZSxieXJvdz1UUlVFLG5yb3c9MylcbnN0YXJzX3dhcnNfbWF0cml4XG5cbnJlZ2lvbiA8LSBjKFwiVVNcIixcIk5PTi1VU1wiKVxuVElUTEVTIDwtIGMoXCJBIE5FVyBIT1BFXCIsXCJUSEUgRU1QSVJFIFNUUklLRVMgQkFDS1wiLFwiUkVUVVJOIE9GIFRIRSBKRURJXCIpXG5jb2xuYW1lcyhzdGFyc193YXJzX21hdHJpeCkgPC0gcmVnaW9uXG5yb3duYW1lcyhzdGFyc193YXJzX21hdHJpeCk8LVRJVExFU1xuc3RhcnNfd2Fyc19tYXRyaXhcbmBgYCJ9 -->
+<pre class="r"><code>val_1 &lt;- c(460.998,314.4)
+empire_strike &lt;- c(2980.475,247.9)
+retun_jedi &lt;- c(309.306,165.8)
+box_office &lt;- c(val_1,empire_strike,retun_jedi)
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3J9DQo4KzgNCjUrNQ0KYGBgDQoNCmBgYHtyfQ0KYWdlIDwtIDE3DQphZ2UgPj0gMTgNCg0KDQp2ZWN0b3IgPC0gYygxMDAsMjAwKQ0KdmVjdG9yMiA8LSBjKDEwMCwyMDApDQpuYW1lcyh2ZWN0b3IpIDwtIGMoInVubyIsImRvcyIpDQp2ZWMgPC0gdmVjdG9yK3ZlY3RvcjINCnZlYyANCnZhbG9yIDwtIHN1bSh2ZWN0b3IpDQp2YWxvcg0KdmVjdG9yWzFdDQp2ZWN0b3JbYygxKV0NCg0KdmVjdG9yNSA8LSBjKGE8LTIsYjwtMykNCnZlY3RvcjUNCmBgYA0KDQo=</div>
+stars_wars_matrix &lt;- matrix(box_office,byrow=TRUE,nrow=3)
+stars_wars_matrix
+
+region &lt;- c(&quot;US&quot;,&quot;NON-US&quot;)
+TITLES &lt;- c(&quot;A NEW HOPE&quot;,&quot;THE EMPIRE STRIKES BACK&quot;,&quot;RETURN OF THE JEDI&quot;)
+colnames(stars_wars_matrix) &lt;- region
+rownames(stars_wars_matrix)&lt;-TITLES
+stars_wars_matrix</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud29ybGR3aWRlX3ZlY3RvciA8LSByb3dTdW1zKHN0YXJzX3dhcnNfbWF0cml4KVxud29ybGR3aWRlX3ZlY3RvclxuXG5hbGxfd2Fyc192YXJpYWJsZSA8LWNiaW5kKHN0YXJzX3dhcnNfbWF0cml4LHdvcmxkd2lkZV92ZWN0b3IpXG5hbGxfd2Fyc192YXJpYWJsZVxuXG53b3Jsd2lkZV9jb2xzIDwtIGNvbFN1bXMoc3RhcnNfd2Fyc19tYXRyaXgpXG53b3Jsd2lkZV9jb2xzXG5cbmFsbF93YXJzX3ZhcmlhYmxlIDwtIHJiaW5kKGFsbF93YXJzX3ZhcmlhYmxlLHdvcmx3aWRlX2NvbHMpXG5hbGxfd2Fyc192YXJpYWJsZVxuXG5cbm5vX3VzX2FsbCA8LSBhbGxfd2Fyc192YXJpYWJsZVssMl1cbm5vX3VzX2FsbFxuXG5ub191c19hbGwgPC0gYWxsX3dhcnNfdmFyaWFibGVbMTozLDJdXG5ub191c19hbGxcblxubWVhbihub191c19hbGwpXG5cbm5vX3VzX2FsbCA8LSBhbGxfd2Fyc192YXJpYWJsZVsxOjMsMl1cbm5vX3VzX2FsbCA8LSBub191c19hbGwqLjEyXG5ub191c19hbGwgXG5gYGAifQ== -->
+<pre class="r"><code>worldwide_vector &lt;- rowSums(stars_wars_matrix)
+worldwide_vector
+
+all_wars_variable &lt;-cbind(stars_wars_matrix,worldwide_vector)
+all_wars_variable
+
+worlwide_cols &lt;- colSums(stars_wars_matrix)
+worlwide_cols
+
+all_wars_variable &lt;- rbind(all_wars_variable,worlwide_cols)
+all_wars_variable
+
+
+no_us_all &lt;- all_wars_variable[,2]
+no_us_all
+
+no_us_all &lt;- all_wars_variable[1:3,2]
+no_us_all
+
+mean(no_us_all)
+
+no_us_all &lt;- all_wars_variable[1:3,2]
+no_us_all &lt;- no_us_all*.12
+no_us_all </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>factor</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5zZXhfdmVjdG9yIDwtIGMoXCJNYWxlXCIsXCJGYW1hbGVcIixcIkZhbWFsZVwiLFwiTWFsZVwiLFwiTWFsZVwiKVxuc2V4X3ZlY3RvciA8LSBmYWN0b3Ioc2V4X3ZlY3RvcilcbnNleF92ZWN0b3JcbmBgYCJ9 -->
+<pre class="r"><code>
+sex_vector &lt;- c(&quot;Male&quot;,&quot;Famale&quot;,&quot;Famale&quot;,&quot;Male&quot;,&quot;Male&quot;)
+sex_vector &lt;- factor(sex_vector)
+sex_vector</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIE1hbGUgICBGYW1hbGUgRmFtYWxlIE1hbGUgICBNYWxlICBcbkxldmVsczogRmFtYWxlIE1hbGVcbiJ9 -->
+<pre><code>[1] Male   Famale Famale Male   Male  
+Levels: Famale Male</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVtcGVyYXR1cmVfdmVjdG9yIDwtIGMoXCJIaWdoXCIsXCJMb3dcIixcIkhpZ2hcIixcIkxvd1wiLFwiTWVkaXVtXCIpXG5mYWN0b3JfdGVtcGVyYXR1cl92ZWN0b3IgPC0gZmFjdG9yKHRlbXBlcmF0dXJlX3ZlY3RvcixvcmRlcj1UUlVFLGxldmVscz1jKFwiTG93XCIsXCJNZWRpdW1cIixcIkhpZ2hcIikpXG5mYWN0b3JfdGVtcGVyYXR1cl92ZWN0b3IgICAgICAgICAgICAgICAgXG5gYGAifQ== -->
+<pre class="r"><code>temperature_vector &lt;- c(&quot;High&quot;,&quot;Low&quot;,&quot;High&quot;,&quot;Low&quot;,&quot;Medium&quot;)
+factor_temperatur_vector &lt;- factor(temperature_vector,order=TRUE,levels=c(&quot;Low&quot;,&quot;Medium&quot;,&quot;High&quot;))
+factor_temperatur_vector                </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEhpZ2ggICBMb3cgICAgSGlnaCAgIExvdyAgICBNZWRpdW1cbkxldmVsczogTG93IDwgTWVkaXVtIDwgSGlnaFxuIn0= -->
+<pre><code>[1] High   Low    High   Low    Medium
+Levels: Low &lt; Medium &lt; High</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShzdXJieV92ZWN0b3IpXG5cbmBgYCJ9 -->
+<pre class="r"><code>summary(surby_vector)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgTGVuZ3RoICAgICBDbGFzcyAgICAgIE1vZGUgXG4gICAgICAgIDUgY2hhcmFjdGVyIGNoYXJhY3RlciBcbiJ9 -->
+<pre><code>   Length     Class      Mode 
+        5 character character </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShmYWN0b3Jfc3VyYnlfdmVjdG9yKVxuYGBgIn0= -->
+<pre class="r"><code>summary(factor_surby_vector)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBNYWxlIEZhbWFsZSBcbiAgICAgMiAgICAgIDMgXG4ifQ== -->
+<pre><code>  Male Famale 
+     2      3 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubnRjYXJzXG5cbmBgYCJ9 -->
+<pre class="r"><code>ntcars
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAnbnRjYXJzJyBub3QgZm91bmRcbiJ9 -->
+<pre><code>Error: object &#39;ntcars&#39; not found</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KYGBge3J9DQo4KzgNCjUrNQ0KYGBgDQoNCmBgYHtyfQ0KYWdlIDwtIDE3DQphZ2UgPj0gMTgNCg0KDQp2ZWN0b3IgPC0gYygxMDAsMjAwKQ0KdmVjdG9yMiA8LSBjKDEwMCwyMDApDQpuYW1lcyh2ZWN0b3IpIDwtIGMoInVubyIsImRvcyIpDQp2ZWMgPC0gdmVjdG9yK3ZlY3RvcjINCnZlYyANCnZhbG9yIDwtIHN1bSh2ZWN0b3IpDQp2YWxvcg0KdmVjdG9yWzFdDQp2ZWN0b3JbYygxKV0NCg0KdmVjdG9yNSA8LSBjKGE8LTIsYjwtMykNCnZlY3RvcjUNCmBgYA0KDQpgYGB7cn0NCm1hdHJpeCgxOjksYnlyb3c9VFJVRSxucm93PTMpDQpgYGANCg0KYGBge3J9DQp2YWxfMSA8LSBjKDQ2MC45OTgsMzE0LjQpDQplbXBpcmVfc3RyaWtlIDwtIGMoMjk4MC40NzUsMjQ3LjkpDQpyZXR1bl9qZWRpIDwtIGMoMzA5LjMwNiwxNjUuOCkNCmJveF9vZmZpY2UgPC0gYyh2YWxfMSxlbXBpcmVfc3RyaWtlLHJldHVuX2plZGkpDQoNCnN0YXJzX3dhcnNfbWF0cml4IDwtIG1hdHJpeChib3hfb2ZmaWNlLGJ5cm93PVRSVUUsbnJvdz0zKQ0Kc3RhcnNfd2Fyc19tYXRyaXgNCg0KcmVnaW9uIDwtIGMoIlVTIiwiTk9OLVVTIikNClRJVExFUyA8LSBjKCJBIE5FVyBIT1BFIiwiVEhFIEVNUElSRSBTVFJJS0VTIEJBQ0siLCJSRVRVUk4gT0YgVEhFIEpFREkiKQ0KY29sbmFtZXMoc3RhcnNfd2Fyc19tYXRyaXgpIDwtIHJlZ2lvbg0Kcm93bmFtZXMoc3RhcnNfd2Fyc19tYXRyaXgpPC1USVRMRVMNCnN0YXJzX3dhcnNfbWF0cml4DQpgYGANCg0KYGBge3J9DQp3b3JsZHdpZGVfdmVjdG9yIDwtIHJvd1N1bXMoc3RhcnNfd2Fyc19tYXRyaXgpDQp3b3JsZHdpZGVfdmVjdG9yDQoNCmFsbF93YXJzX3ZhcmlhYmxlIDwtY2JpbmQoc3RhcnNfd2Fyc19tYXRyaXgsd29ybGR3aWRlX3ZlY3RvcikNCmFsbF93YXJzX3ZhcmlhYmxlDQoNCndvcmx3aWRlX2NvbHMgPC0gY29sU3VtcyhzdGFyc193YXJzX21hdHJpeCkNCndvcmx3aWRlX2NvbHMNCg0KYWxsX3dhcnNfdmFyaWFibGUgPC0gcmJpbmQoYWxsX3dhcnNfdmFyaWFibGUsd29ybHdpZGVfY29scykNCmFsbF93YXJzX3ZhcmlhYmxlDQoNCg0Kbm9fdXNfYWxsIDwtIGFsbF93YXJzX3ZhcmlhYmxlWywyXQ0Kbm9fdXNfYWxsDQoNCm5vX3VzX2FsbCA8LSBhbGxfd2Fyc192YXJpYWJsZVsxOjMsMl0NCm5vX3VzX2FsbA0KDQptZWFuKG5vX3VzX2FsbCkNCg0Kbm9fdXNfYWxsIDwtIGFsbF93YXJzX3ZhcmlhYmxlWzE6MywyXQ0Kbm9fdXNfYWxsIDwtIG5vX3VzX2FsbCouMTINCm5vX3VzX2FsbCANCmBgYA0KDQpmYWN0b3INCmBgYHtyfQ0KDQpzZXhfdmVjdG9yIDwtIGMoIk1hbGUiLCJGYW1hbGUiLCJGYW1hbGUiLCJNYWxlIiwiTWFsZSIpDQpzZXhfdmVjdG9yIDwtIGZhY3RvcihzZXhfdmVjdG9yKQ0Kc2V4X3ZlY3Rvcg0KDQp0ZW1wZXJhdHVyZV92ZWN0b3IgPC0gYygiSGlnaCIsIkxvdyIsIkhpZ2giLCJMb3ciLCJNZWRpdW0iKQ0KZmFjdG9yX3RlbXBlcmF0dXJfdmVjdG9yIDwtIGZhY3Rvcih0ZW1wZXJhdHVyZV92ZWN0b3Isb3JkZXI9VFJVRSxsZXZlbHM9YygiTG93IiwiTWVkaXVtIiwiSGlnaCIpKQ0KZmFjdG9yX3RlbXBlcmF0dXJfdmVjdG9yICAgICAgICAgICAgICAgIA0KYGBgDQoNCmBgYHtyfQ0KDQpzdXJieV92ZWN0b3IgPC0gYygiTSIsIkYiLCJGIiwiTSIsIk0iKQ0KZmFjdG9yX3N1cmJ5X3ZlY3RvciA8LSBmYWN0b3Ioc3VyYnlfdmVjdG9yKQ0KZmFjdG9yX3N1cmJ5X3ZlY3Rvcg0KbGV2ZWxzKGZhY3Rvcl9zdXJieV92ZWN0b3IpIDwtIGMoIk1hbGUiLCJGYW1hbGUiKQ0KZmFjdG9yX3N1cmJ5X3ZlY3Rvcg0KDQpzdW1tYXJ5KHN1cmJ5X3ZlY3RvcikNCnN1bW1hcnkoZmFjdG9yX3N1cmJ5X3ZlY3RvcikNCg0KbWFsZSA8LWZhY3Rvcl9zdXJieV92ZWN0b3JbMV0NCmZhbWFsZTwtZmFjdG9yX3N1cmJ5X3ZlY3RvclsyXQ0KYGBgDQoNCmBgYHtyfQ0KDQpzcGVlZF92ZWN0b3IgPC0gYygibWVkaXVuIiwic2xvdyIsIm1lZGl1bSIsImZhc3QiKQ0KZmFjdG9yX3NwZWVkX3ZlY3RvciA8LSBmYWN0b3Ioc3BlZWRfdmVjdG9yLCBvcmRlcmVkPVRSVUUsIGxldmVscz1jKCJzbG93IiwibWVkaXVtIiwiZmFzdCIpKQ0KZmFjdG9yX3NwZWVkX3ZlY3Rvcg0KZGEyIDwtIGZhY3Rvcl9zcGVlZF92ZWN0b3JbMl0NCg0KZGEzIDwtIGZhY3Rvcl9zcGVlZF92ZWN0b3JbMV0NCg0KZGEyDQpkYTMNCg0KZGEyPiBkYTMNCg0KZmFjdG9yX3NwZWVkX3ZlY3RvclsxXQ0KDQoNCg0KDQpgYGANCg0K</div>
 
 
 
