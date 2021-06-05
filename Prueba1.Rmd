@@ -1,0 +1,28 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+8+8
+5+5
+```
+
+```{r}
+age <- 17
+age >= 18
+
+
+vector <- c(100,200)
+vector2 <- c(100,200)
+names(vector) <- c("uno","dos")
+vec <- vector+vector2
+vec 
+valor <- sum(vector)
+valor
+vector[1]
+vector[c(1)]
+
+vector5 <- c(a<-2,b<-3)
+vector5
+```
+
