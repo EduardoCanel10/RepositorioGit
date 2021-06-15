@@ -1,0 +1,169 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Funciones:Tienen la siguiente estructura
+
+nombre <- function(argumentos) {
+  operaciones
+}
+
+Cuando asignamos una función a un nombre decimos que hemos definido una función.
+
+El nombre que asignamos a una función nos permite ejecutarla y hacer referencias a ella. Podemos asignar la misma función a diferentes nombres o cambiar una función a la que ya le hemos asignado un nombre. Es recomendable elegir nombres claros, no ambiguos y descriptivos.
+
+Una vez que la función tiene nombre, podemos llamarla usando su nombre, al igua lque con las funciones por defecto de R.
+
+Los argumentos son las variables que necesita la función para realizar sus operaciones. Aparecen entre paréntesis, separados por comas. Los valores son asignados al nombre del argumento por el usuario cada vez que ejecuta una función. Esto permite que usemos nuestras funciones en distintas situaciones con diferentes datos y especificaciones.
+
+Los argumentos pueden ser datos, estructuras de datos, conexiones a archivos u otras funciones y todos deben tener nombres diferentes.
+
+Las partes de nuestra función son:
+
+Nombre: area_cuad.
+Argumentos: lado1, lado2. Estos son los datos que necesita la función para calcular el área, representan el largo de los lados de un cuadrilátero.
+Cuerpo: La operación lado1 * lado2, escrita de manera que R pueda interpretarla.
+
+```{r}
+
+area_cuad <- function(lado1, lado2) {
+  lado1 * lado2
+}
+
+area_cuad(lado1 = 4, lado2 = 6)
+
+area_cuad(lado1 = 36, lado2 = 36)
+
+
+area_prisma <- function(arista1, arista2, arista3) {
+  area_cuad(arista1, arista2) * arista3
+}
+
+area_prisma(3, 6, 9)
+```
+La familia Apply
+
+La familia de funciones apply es usada para aplicar una función a cada elemento de una estructura de datos. En particular, es usada para aplicar funciones en matrices, data frames, arrays y listas.
+
+Con esta familia de funciones podemos automatizar tareas complejas usando poca líneas de código y es una de las características distintivas de R como lenguaje de programación.
+
+La familia de funciones apply es una expresión de los rasgos del paradigma funcional de programación presentes en R. Sobre esto no profundizaremos demasiado, pero se refiere saber que en R las funciones son “ciudadanos de primera”, con la misma importancia que los objetos, y por lo tanto, operamos en ellas.
+
+La familia de funciones apply no sólo recibe datos como argumentos, también recibe funciones.
+
+Apply:
+
+apply aplica una función a todos los elementos de una matriz.
+
+La estructura de esta función es la siguiente.
+
+apply(X, MARGIN, FUN)
+
+
+```{r}
+
+mi_df <- data.frame(v1 = 1:3, v2 = 4:6)
+
+mi_matriz <- as.matrix(mi_df)
+
+matriz <- matrix(1:14, nrow = 4) 
+
+apply(X = matriz, MARGIN = 1, FUN = sum)
+
+apply(matriz, 1, mean)
+
+```
+lapply
+lapply() es un caso especial de apply(), diseñado para aplicar funciones a todos los elementos de una lista. La l de su nombre se refiere, precisamente, a lista.
+
+lapply() intentará coercionar a una lista el objeto que demos como argumento y después aplicará una función a todos sus elementos.
+
+lapply siempre nos devolverá una lista como resultado. A diferencia de apply, sabemos que siempre obtendremos ub objeto de tipo lista después de aplicar una función, sin importar cuál función sea.
+
+Dado que en R todas las estructuras de datos pueden coercionarse a una lista, lapply() puede usarse en un número más amplio de casos que apply(), además de que esto nos permite utilizar funciones que aceptan argumentos distintos a vectores.
+
+La estructura de esta función es:
+
+lapply(X, FUN)
+En donde:
+
+X es una lista o un objeto coercionable a una lista.
+FUN es la función a aplicar.
+
+```{r}
+
+lapply(X = trees, FUN = mean)
+
+arboles <- lapply(X = trees, FUN = mean)
+arboles
+
+lapply(X = trees, FUN = quantile, probs = .8)
+
+
+matriz <- matrix(1:9, ncol = 3)
+
+lapply(matriz, quantile, probs = .8)
+
+
+lapply(as.data.frame(matriz), quantile, probs = .8)
+
+mi_vector <- 1:4
+
+lapply(mi_vector, sqrt)
+
+mi_vector <- 6:12
+resultado <- NULL
+
+resultado <- lapply(mi_vector, sqrt)
+
+resultado
+
+
+tablas <- list(
+  df1 = data.frame(a = rnorm(n = 5), b = rnorm(n = 5), c = rnorm(n = 5)),
+  df2 = data.frame(d = rnorm(n = 5), e = rnorm(n = 5), f = rnorm(n = 5)),
+  df3 = data.frame(g = rnorm(n = 5), h = rnorm(n = 5), i = rnorm(n = 5))
+)
+
+lapply(X = tablas, FUN = cor)
+
+
+```
+
+Sapply
+
+
+La función sapply() funciona como lapply(), pero intenta simplificar la salida a la estructura de datos más elemental posible. Y de hecho, sapply() es una función 'wrapper' para lapply().
+
+Un ejemplo puede ayudar a entender esto: digamos que desea repetir la operación de extracción de un solo elemento como en el último ejemplo, pero ahora tome el primer elemento de la segunda fila (índices 2 y 1) para cada matriz.
+
+Aplicar la función lapply() nos daría una lista a menos que pase simplify=FALSE como parámetro a sapply(). A continuación, se devolverá una lista. Vea cómo funciona en el fragmento de código siguiente:
+
+```{r}
+
+sapply(BOD, sum)
+
+mylist <- list(c(1, 2, 3, 4), c(2, 4, 6, 8), c(1, 3, 5, 7))
+  
+# Calling the sapply() function which
+# will calculate mean of each vector elements
+sapply(mylist, mean)
+
+
+
+```
+
+Vapply
+función vapply en R. vapply es generalmente menos conocida que las funciones sapply, lapply y apply más populares. Sin embargo, es muy útil cuando sabe a qué tipo de datos espera aplicar una función, ya que ayuda a evitar errores silenciosos. Debido a esto, puede ser más recomendable usar vapply en lugar de sapply o lapply.
+
+```{r}
+
+test <- list(a = c(1, 3, 5), b = c(2,4,6), c = c(9,8,7))
+sapply(test, max)
+
+vapply(test, max, numeric(1))
+
+vapply(test, max, numeric(1), simplify = FALSE)
+
+```
+
