@@ -1,0 +1,110 @@
+---
+title: "Tarea 3"
+output: html_notebook
+---
+
+Carga de archivos csv
+Libreria a utilizar readr
+```{r}
+install.packages("readr")
+library("readr")
+
+```
+
+
+```{r}
+prueba <-"hola"
+ruta_csv <-"C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/primary_results.csv"
+
+gapminder <- read_csv(ruta_csv,col_names = FALSE)
+
+gapminder <- read_csv(ruta_csv,col_names = c("state","state_abbreviation",	"county","fips","party","candidate","votes","fraction_votes"))
+
+View(gapminder)
+
+mi_archivo <- read.csv(ruta_csv)
+View(mi_archivo)
+
+
+
+```
+
+
+funcion select seleccionar los votos de florida
+```{r}
+
+library("dplyr")
+
+ votos_florida<- mi_archivo %>%
+    filter(state=="Florida") %>%
+    select_("votes")
+ 
+ votos_florida
+ 
+ 
+
+```
+filtrar los votos de Hilary Clinton y Donald Trump
+
+```{r}
+
+
+votos_candidatos<- mi_archivo %>%
+    filter(candidate=="Hillary Clinton" | candidate=="Donald Trump" ) %>%
+    group_by(candidate) %>%
+    summarize(votostotales=sum(votes))
+
+votos_candidatos
+
+```
+
+Filtrar votos para el partido Demócrata y el condado Shelby
+```{r}
+votos_candidatos<- mi_archivo %>%
+    filter(party=="Republican" & county=="Shelby" ) %>%
+    group_by(party,county) %>%
+    summarize(votostotales=sum(votes))
+
+votos_candidatos
+
+```
+Filtrar votos para el estado de Alabama y que la cantidad de votos sea mayor a
+15000
+```{r}
+votos_candidatos<- mi_archivo %>%
+    filter(state=="Alabama" & votes>15000 ) %>%
+    select_("state","county","votes")
+    
+
+votos_candidatos
+
+```
+Filtrar votos para el estado de Texas y el condado Denton, seleccionando
+únicamente las columnas party, candidate, votes, luego ordene de forma
+descendente por la columna votes.
+
+```{r}
+votos_candidatos<- mi_archivo %>%
+    filter(state=="Texas" & county=="Denton") %>%
+    select_("party","candidate","votes")%>%
+    arrange(desc(votes))
+
+votos_candidatos
+
+```
+Filtrar por el partido Republicano, que el candidato sea Ted Cruz en el estado de
+Alaska, luego agregue una columna que se llame vote_count que sea la división de
+votes por fraction_votes (votes/fraction_votes), finalmente ordene de forma
+descendente por vote_count
+
+
+```{r}
+
+votos_candidatos<- mi_archivo %>%
+    filter(party=="Republican" & candidate=="Ted Cruz" & state=="Alaska") %>%
+    mutate(vote_count=votes/fraction_votes) %>%
+    arrange(desc(vote_count))
+
+votos_candidatos
+```
+
