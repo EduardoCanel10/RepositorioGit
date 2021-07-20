@@ -1,0 +1,109 @@
+---
+title: "Tarea 4"
+output: html_notebook
+---
+
+1. primera parte
+```{r}
+
+library(tidyverse)
+diamonds <- read_csv('C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/diamonds.csv')
+
+str(diamonds)
+
+```
+1.Dispersión
+
+
+```{r}
+
+ggplot(diamonds, aes(x=carat, y=price, color=clarity )) + geom_point()+ 
+labs(x = "Quilataje")+
+labs(y = "Precio")
+
+ggplot(diamonds, aes(x=carat, y=price, color=clarity )) + geom_point()+ scale_x_log10()+
+scale_y_log10()+
+labs(x = "Quilataje")+
+labs(y = "Precio")
+
+```
+
+2. Histograma
+
+```{r}
+
+ggplot(diamonds, aes(x=price)) +
+  geom_histogram(bins=40)
+
+ggplot(diamonds, aes(x=price)) +
+  geom_histogram(bins=40)+
+  scale_x_log10()
+
+
+
+```
+3.Boxplots
+```{r}
+
+ggplot(diamonds, aes(x=cut, y=price)) +
+  geom_boxplot() +
+  scale_y_log10()
+
+ggplot(diamonds, aes(x=cut, y=price, fill=cut)) +
+  geom_boxplot() +
+  scale_y_log10()
+
+
+```
+4.Faceting
+
+```{r}
+
+filtered_price<-diamonds %>% 
+  filter(price>1000) %>%
+  filter (cut %in% c("Good", "Ideal", "Premium"))
+
+filtered_price
+
+ggplot(filtered_price, aes(x=cut, y=depth)) + 
+    geom_bar(stat="identity", position="stack")
+
+ggplot(filtered_price, aes(x=cut, y=depth)) + 
+    geom_bar(stat="identity", position="stack")+
+    facet_wrap(~clarity)
+
+ggplot(filtered_price, aes(x=cut, y=depth,fill=clarity)) + 
+    geom_bar(stat="identity", position="stack")+
+    facet_wrap(~clarity)
+
+```
+
+5.Grouping and summarizing
+
+```{r}
+print(diamonds)
+
+median_dimension_diamond <-diamonds %>% 
+  group_by(cut) %>%
+  summarize(mediax=mean(x, na.rm = TRUE))%>%
+  summarize(mediay=mean(y, na.rm = TRUE))%>%
+  summarize(mediaz=mean(z, na.rm = TRUE))
+
+median_dimension_diamond <-diamonds %>% 
+  group_by(cut) %>%
+  summarize(mediax=mean(x, na.rm = TRUE),mediay=mean(y, na.rm = TRUE),   mediaz=mean(z, na.rm = TRUE))
+
+print(median_dimension_diamond)
+
+cut_premium<-diamonds %>% 
+    filter(cut=="Premium") %>%
+    group_by(clarity) %>%
+    summarize(minprice=min(price),maxprice=max(price))
+cut_premium
+  
+
+ggplot(cut_premium, aes(x=clarity, y=maxprice,fill=clarity)) + 
+    geom_bar(stat="identity", position="stack")
+            
+```
+
