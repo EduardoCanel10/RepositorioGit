@@ -1,0 +1,77 @@
+---
+title: "Tarea 5"
+output: html_notebook
+---
+cargar archivos
+
+```{r}
+library(tidyverse)
+library(gapminder)
+
+answers <- read_csv('C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/tarea 5/answers.csv')
+
+questions <- read_csv('C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/tarea 5/questions.csv')
+
+tags <- read_csv('C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/tarea 5/tags.csv')
+
+question_tags <- read_csv('C:/Users/edcan/Documents/maestria 2021/segundo semestre/scripting/tarea 5/question_tags.csv')
+
+
+
+```
+1. Left-joing qu3estions and tags
+
+```{r}
+question_with_tags<-questions %>%
+  left_join(question_tags,by=c("id"="question_id"))%>%
+  left_join(tags,by=c("tag_id"="id"))
+
+question_with_tags<-question_with_tags %>%
+  replace_na(list(tag_name = "only-r"))
+
+question_with_tags %>%
+  filter(tag_name=="only-r") 
+
+```
+2. Comparing socres across tags
+```{r}
+question_with_tags %>%
+  group_by(tag_name) %>%
+  summarize(mean_score=mean(score))%>%
+  arrange(desc(mean_score))
+```
+3.finding gaps between questions an answers
+```{r}
+
+gaps<-questions %>% 
+  inner_join(answers,by=c("id"="question_id"),suffix=c("_question","_answer"))
+  
+gaps %>% 
+  mutate(gap=creation_date_answer - creation_date_question)
+
+```
+4.joining question and asnwer counts
+```{r}
+
+answer_counts<-answers %>%
+  count(question_id) %>%
+  arrange(desc(question_id))
+  
+answer_counts
+
+question_answer_counts<-answer_counts %>%
+  left_join(questions,by=c("question_id"="id"))%>%
+replace_na(list(n = 0))
+
+
+```
+
+5- joing questions,answers and tags
+
+```{r}
+question_tags %>%
+  inner_join(question_answer_counts,by=c("question_id"="question_id"))%>%
+  inner_join(tags,by=c("tag_id"="id"))
+
+```
+
